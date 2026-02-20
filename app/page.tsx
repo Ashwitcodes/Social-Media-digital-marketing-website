@@ -6,6 +6,7 @@ import { Pricing } from '@/components/pricing';
 import { Testimonials } from '@/components/testimonials';
 import { FAQ } from '@/components/faq';
 import { Footer } from '@/components/footer';
+import { Chatbot } from '@/components/chatbot';
 
 export const metadata = {
   title: 'DevHub - Digital Marketing & Software Development',
@@ -29,6 +30,7 @@ export default function Home() {
       <Testimonials />
       <FAQ />
       <Footer />
+      <Chatbot />
     </main>
   );
 }
