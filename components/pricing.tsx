@@ -1,90 +1,86 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight, Award } from 'lucide-react';
 
 export function Pricing() {
-  const [isAnnual, setIsAnnual] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  const plans = [
+  const successStories = [
     {
-      name: 'Starter',
-      description: 'Perfect for small projects',
-      monthlyPrice: 29,
-      yearlyPrice: 290,
-      features: [
-        'Up to 5 projects',
-        '10GB storage',
-        'Basic analytics',
-        'Community support',
-        'Monthly reports',
-      ],
-      highlighted: false,
+      title: 'Yeh Meri Family',
+      subtitle: 'Premium Family Entertainment',
+      views: '122M+ Views',
+      category: 'Web Series',
+      image: 'https://images.unsplash.com/photo-1633356122544-f6fba8e2e6c4?w=400&h=500&fit=crop',
     },
     {
-      name: 'Professional',
-      description: 'For growing businesses',
-      monthlyPrice: 99,
-      yearlyPrice: 990,
-      features: [
-        'Unlimited projects',
-        '1TB storage',
-        'Advanced analytics',
-        'Priority support',
-        'Weekly reports',
-        'Custom integrations',
-        'Team collaboration',
-        'API access',
-      ],
-      highlighted: true,
+      title: 'BadtameezDil',
+      subtitle: 'Viral Romance Series',
+      views: '109M+ Views',
+      category: 'Streaming',
+      image: 'https://images.unsplash.com/photo-1633356122544-f6fba8e2e6c4?w=400&h=500&fit=crop',
     },
     {
-      name: 'Enterprise',
-      description: 'For large organizations',
-      monthlyPrice: 299,
-      yearlyPrice: 2990,
-      features: [
-        'Everything in Professional',
-        'Unlimited storage',
-        'Real-time analytics',
-        '24/7 dedicated support',
-        'Custom contracts',
-        'Advanced security',
-        'White-label options',
-        'SLA guarantee',
-      ],
-      highlighted: false,
+      title: 'Financial Stories',
+      subtitle: 'Educational Content',
+      views: '98M+ Views',
+      category: 'Documentary',
+      image: 'https://images.unsplash.com/photo-1633356122544-f6fba8e2e6c4?w=400&h=500&fit=crop',
+    },
+    {
+      title: 'Highway Season 2',
+      subtitle: 'Adventure Series',
+      views: '156M+ Views',
+      category: 'Drama',
+      image: 'https://images.unsplash.com/photo-1633356122544-f6fba8e2e6c4?w=400&h=500&fit=crop',
+    },
+    {
+      title: 'Mystery Chronicles',
+      subtitle: 'Thriller Series',
+      views: '87M+ Views',
+      category: 'Suspense',
+      image: 'https://images.unsplash.com/photo-1633356122544-f6fba8e2e6c4?w=400&h=500&fit=crop',
+    },
+    {
+      title: 'Comedy Gold',
+      subtitle: 'Entertainment Hub',
+      views: '145M+ Views',
+      category: 'Comedy',
+      image: 'https://images.unsplash.com/photo-1633356122544-f6fba8e2e6c4?w=400&h=500&fit=crop',
     },
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
-      },
-    },
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % successStories.length);
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + successStories.length) % successStories.length);
+  };
+
+  const slideVariants = {
+    enter: (direction: number) => ({
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
+    center: {
+      zIndex: 1,
+      x: 0,
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: 'easeOut',
-      },
     },
+    exit: (direction: number) => ({
+      zIndex: 0,
+      x: direction < 0 ? 1000 : -1000,
+      opacity: 0,
+    }),
   };
 
   return (
     <section
-      id="pricing"
-      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/30"
+      id="success-stories"
+      className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-background to-secondary/20"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
@@ -93,161 +89,129 @@ export function Pricing() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Simple, Transparent Pricing
-          </h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto mb-8">
-            Choose the perfect plan for your needs. Scale up or down anytime.
-          </p>
-
-          {/* Billing Toggle */}
-          <div className="flex items-center justify-center gap-4">
-            <span
-              className={`text-sm font-medium transition-colors ${
-                !isAnnual
-                  ? 'text-foreground'
-                  : 'text-foreground/60'
-              }`}
-            >
-              Monthly
-            </span>
-            <motion.button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className="relative inline-flex h-8 w-14 items-center rounded-full bg-primary/20 border border-primary/40"
-              whileHover={{ scale: 1.05 }}
-            >
-              <motion.div
-                className="h-6 w-6 rounded-full bg-primary"
-                animate={{ x: isAnnual ? 28 : 2 }}
-                transition={{ type: 'spring', stiffness: 500, damping: 40 }}
-              />
-            </motion.button>
-            <span
-              className={`text-sm font-medium transition-colors ${
-                isAnnual
-                  ? 'text-foreground'
-                  : 'text-foreground/60'
-              }`}
-            >
-              Yearly
-            </span>
-            {isAnnual && (
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="ml-2 inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold"
-              >
-                Save 17%
-              </motion.span>
-            )}
+          {/* Award Icon + Title */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <Award className="w-8 h-8 text-orange-500" />
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground inline-block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+              Our Success Stories
+            </h2>
           </div>
+
+          <p className="text-lg text-foreground/70 max-w-3xl mx-auto leading-relaxed">
+            Shaping Brands into Digital Powerhouses
+          </p>
         </motion.div>
 
-        {/* Pricing Cards */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-100px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {plans.map((plan, index) => (
-            <motion.div
-              key={plan.name}
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className={`relative rounded-2xl border transition-all duration-300 p-8 ${
-                plan.highlighted
-                  ? 'border-primary bg-gradient-to-b from-primary/10 to-background'
-                  : 'border-border bg-card'
-              }`}
-            >
-              {/* Popular Badge */}
-              {plan.highlighted && (
-                <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                  <span className="inline-block px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-bold">
-                    Most Popular
-                  </span>
-                </div>
-              )}
-
-              {/* Plan Header */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-foreground mb-2">
-                  {plan.name}
-                </h3>
-                <p className="text-sm text-foreground/60 mb-4">
-                  {plan.description}
-                </p>
-
-                {/* Price */}
-                <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-foreground">
-                    ${isAnnual ? plan.yearlyPrice : plan.monthlyPrice}
-                  </span>
-                  <span className="text-foreground/60">
-                    {isAnnual ? '/year' : '/month'}
-                  </span>
-                </div>
-              </div>
-
-              {/* CTA Button */}
-              <button
-                className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-300 flex items-center justify-center gap-2 group ${
-                  plan.highlighted
-                    ? 'bg-primary text-primary-foreground hover:bg-primary/90'
-                    : 'border border-primary/30 text-foreground hover:border-primary/60 hover:bg-primary/5'
-                }`}
+        {/* Carousel Container */}
+        <div className="relative mb-12">
+          {/* Story Cards Carousel */}
+          <div className="relative h-96 md:h-96 overflow-hidden rounded-3xl">
+            <AnimatePresence initial={false} custom={currentIndex} mode="wait">
+              <motion.div
+                key={currentIndex}
+                custom={currentIndex}
+                variants={slideVariants}
+                initial="enter"
+                animate="center"
+                exit="exit"
+                transition={{
+                  x: { type: 'spring', stiffness: 300, damping: 30 },
+                  opacity: { duration: 0.4 },
+                }}
+                className="absolute inset-0"
               >
-                Get Started
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </button>
+                <div className="relative h-full w-full rounded-3xl overflow-hidden group">
+                  {/* Background Image */}
+                  <img
+                    src={successStories[currentIndex].image}
+                    alt={successStories[currentIndex].title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
 
-              {/* Features List */}
-              <div className="space-y-3">
-                {plan.features.map((feature, idx) => (
-                  <motion.div
-                    key={idx}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: idx * 0.05 }}
-                    className="flex items-start gap-3"
-                  >
-                    <Check className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground/80 text-sm">
-                      {feature}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+                  {/* Overlay Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
 
-              {/* Highlighted Border Animation */}
-              {plan.highlighted && (
-                <div className="absolute inset-0 rounded-2xl pointer-events-none border border-primary/20 group-hover:border-primary/50 transition-colors" />
-              )}
-            </motion.div>
-          ))}
-        </motion.div>
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col justify-end p-8">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="px-4 py-1 rounded-full bg-primary/80 text-white text-xs font-bold">
+                          {successStories[currentIndex].category}
+                        </span>
+                        <span className="px-4 py-1 rounded-full bg-accent/80 text-white text-xs font-bold">
+                          {successStories[currentIndex].views}
+                        </span>
+                      </div>
+                      <h3 className="text-4xl md:text-5xl font-bold text-foreground mb-2">
+                        {successStories[currentIndex].title}
+                      </h3>
+                      <p className="text-lg text-foreground/80">
+                        {successStories[currentIndex].subtitle}
+                      </p>
+                    </motion.div>
+                  </div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-        {/* Bottom CTA */}
+          {/* Navigation Buttons */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-primary/80 hover:bg-primary text-white transition-all duration-300"
+          >
+            <ChevronLeft size={24} />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-10 p-3 rounded-full bg-primary/80 hover:bg-primary text-white transition-all duration-300"
+          >
+            <ChevronRight size={24} />
+          </motion.button>
+
+          {/* Dot Indicators */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {successStories.map((_, index) => (
+              <motion.button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                whileHover={{ scale: 1.2 }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-primary w-8'
+                    : 'bg-muted w-2 hover:bg-muted/80'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-16 text-center"
+          className="flex justify-center"
         >
-          <p className="text-foreground/70 mb-4">
-            All plans include a 14-day free trial. No credit card required.
-          </p>
-          <button className="px-8 py-3 rounded-lg bg-muted text-foreground font-semibold hover:bg-muted/80 transition-colors">
-            Talk to Sales
-          </button>
+          <motion.button
+            whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(99, 102, 241, 0.3)' }}
+            whileTap={{ scale: 0.95 }}
+            className="px-10 py-4 rounded-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-lg hover:shadow-xl transition-all duration-300"
+          >
+            View All Success Stories
+          </motion.button>
         </motion.div>
       </div>
     </section>
