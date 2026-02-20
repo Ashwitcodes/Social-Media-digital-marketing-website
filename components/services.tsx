@@ -70,17 +70,17 @@ export function Services() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
         delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, x: -20 },
     visible: {
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
         duration: 0.6,
         ease: 'easeOut',
@@ -88,16 +88,34 @@ export function Services() {
     },
   };
 
-  const renderServiceCategory = (title: string, services: any[]) => (
-    <div className="mb-12">
+  const borderColors = [
+    'border-l-primary',
+    'border-l-accent',
+    'border-l-purple-500',
+    'border-l-orange-500',
+    'border-l-green-500',
+    'border-l-pink-500',
+  ];
+
+  const badgeColors = [
+    'bg-primary/20 text-primary',
+    'bg-accent/20 text-accent',
+    'bg-purple-500/20 text-purple-400',
+    'bg-orange-500/20 text-orange-400',
+    'bg-green-500/20 text-green-400',
+    'bg-pink-500/20 text-pink-400',
+  ];
+
+  const renderServiceCategory = (title: string, services: any[], isMarketing: boolean) => (
+    <div className="mb-16">
       <motion.h3
         initial={{ opacity: 0, x: -20 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-foreground mb-8 flex items-center gap-3"
+        className="text-3xl md:text-4xl font-bold text-foreground mb-12 flex items-center gap-3"
       >
-        {title === 'Digital Marketing' ? (
+        {isMarketing ? (
           <TrendingUp className="text-primary" size={32} />
         ) : (
           <Code2 className="text-accent" size={32} />
@@ -110,42 +128,65 @@ export function Services() {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-100px' }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
+        className="space-y-6"
       >
-        {services.map((service) => {
-          const Icon = service.icon;
-          return (
-            <motion.div
-              key={service.title}
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-              className="group relative p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all duration-300 overflow-hidden"
-            >
-              {/* Background Gradient */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 -z-10`}
-              />
+        {services.map((service, index) => (
+          <motion.div
+            key={service.title}
+            variants={itemVariants}
+            whileHover={{ x: 8 }}
+            className={`group relative p-8 rounded-2xl border-l-8 ${borderColors[index]} bg-card/50 backdrop-blur border border-border hover:bg-card/80 transition-all duration-300 overflow-hidden`}
+          >
+            {/* Background Gradient */}
+            <div
+              className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-3 transition-opacity duration-300 -z-10`}
+            />
 
-              {/* Icon */}
-              <div
-                className={`w-12 h-12 rounded-lg bg-gradient-to-br ${service.color} p-2.5 mb-4 group-hover:scale-110 transition-transform duration-300`}
-              >
-                <Icon className="w-full h-full text-white" />
+            {/* Top Row: Number Circle + Title + Badge */}
+            <div className="flex items-start justify-between mb-4">
+              <div className="flex items-center gap-4">
+                {/* Numbered Circle */}
+                <div
+                  className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br ${service.color} flex items-center justify-center font-bold text-white text-lg group-hover:scale-110 transition-transform duration-300`}
+                >
+                  {index + 1}
+                </div>
+
+                {/* Title */}
+                <h4 className="text-2xl font-bold text-foreground">
+                  {service.title}
+                </h4>
               </div>
 
-              {/* Content */}
-              <h4 className="text-xl font-semibold text-foreground mb-2">
-                {service.title}
-              </h4>
-              <p className="text-foreground/70 text-sm leading-relaxed">
-                {service.description}
-              </p>
+              {/* Badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.4, delay: 0.2 }}
+                viewport={{ once: true }}
+                className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap ${badgeColors[index]} flex items-center gap-2`}
+              >
+                <Zap size={16} />
+                Premium Service
+              </motion.div>
+            </div>
 
-              {/* Border Animation */}
-              <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-primary to-accent w-0 group-hover:w-full transition-all duration-300" />
-            </motion.div>
-          );
-        })}
+            {/* Description */}
+            <p className="text-foreground/70 leading-relaxed text-base ml-16">
+              {service.description}
+            </p>
+
+            {/* CTA Link */}
+            <motion.a
+              href="#contact"
+              whileHover={{ x: 4 }}
+              className="inline-flex items-center gap-2 mt-4 ml-16 text-primary font-semibold hover:text-accent transition-colors duration-300"
+            >
+              See what we can do for your brand. Contact us.
+              <span className="text-lg">→</span>
+            </motion.a>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
@@ -173,10 +214,10 @@ export function Services() {
         </motion.div>
 
         {/* Digital Marketing Services */}
-        {renderServiceCategory('Digital Marketing', digitalMarketingServices)}
+        {renderServiceCategory('Digital Marketing', digitalMarketingServices, true)}
 
         {/* Web Development Services */}
-        {renderServiceCategory('Web Development', webDevelopmentServices)}
+        {renderServiceCategory('Web Development', webDevelopmentServices, false)}
 
         {/* Tools Section */}
         <motion.div
