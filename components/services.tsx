@@ -10,32 +10,36 @@ import {
   Database,
   Smartphone,
   Shield,
+  Share2,
+  Users,
+  Sparkles,
+  Rocket,
 } from 'lucide-react';
 
 export function Services() {
   const digitalMarketingServices = [
     {
-      title: 'Content Production',
-      description: 'High-quality content creation for all platforms and audiences',
-      icon: Video,
+      title: 'Complete Social Media Management',
+      description: 'End-to-end social media strategy, content planning, posting, and community engagement across all platforms',
+      icon: Share2,
       color: 'from-primary to-blue-500',
     },
     {
-      title: 'Logo Design',
-      description: 'Professional brand identity and logo creation',
-      icon: Palette,
+      title: 'Content Production Studio',
+      description: 'Professional video editing, graphics design, thumbnails, and content creation using After Effects, Premiere Pro, Alight Motion',
+      icon: Video,
       color: 'from-accent to-cyan-500',
     },
     {
-      title: 'Thumbnail Design',
-      description: 'Eye-catching thumbnails for videos and social media',
-      icon: Palette,
+      title: 'Brand Community Building',
+      description: 'Build engaged communities around your brand with targeted strategies and authentic audience connections',
+      icon: Users,
       color: 'from-purple-500 to-pink-500',
     },
     {
-      title: 'Short Video Editing',
-      description: 'Professional editing using After Effects, Premiere Pro, Alight Motion',
-      icon: Video,
+      title: 'Viral Reach Marketing',
+      description: 'Strategic campaigns designed to maximize visibility, engagement, and organic reach across all social platforms',
+      icon: Rocket,
       color: 'from-orange-500 to-red-500',
     },
   ];
