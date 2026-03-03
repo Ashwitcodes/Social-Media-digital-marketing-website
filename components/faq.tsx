@@ -9,7 +9,7 @@ export function FAQ() {
 
   const faqs = [
     {
-      question: 'How do I get started with DevHub?',
+      question: 'How do I get started with BrandMatrix?',
       answer:
         'Getting started is easy! Sign up for a free trial, choose your plan, and our onboarding team will guide you through the setup process. You can start using our services within minutes.',
     },

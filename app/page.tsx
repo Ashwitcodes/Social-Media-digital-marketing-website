@@ -9,11 +9,11 @@ import { Footer } from '@/components/footer';
 import { Chatbot } from '@/components/chatbot';
 
 export const metadata = {
-  title: 'DevHub - Digital Marketing & Software Development',
+  title: 'BrandMatrix - Digital Marketing & Software Development',
   description: 'Your complete digital marketing and custom software development partner for business growth. Monthly and yearly SaaS packages available.',
   keywords: 'digital marketing, software development, web development, SaaS',
   openGraph: {
-    title: 'DevHub - Digital Marketing & Software Development',
+    title: 'BrandMatrix - Digital Marketing & Software Development',
     description: 'Professional digital marketing and software development services with flexible SaaS pricing.',
     type: 'website',
   },

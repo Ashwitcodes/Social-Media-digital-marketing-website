@@ -27,7 +27,7 @@ export function Navigation() {
               transition={{ duration: 0.3 }}
               className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
             >
-              DevHub
+              BrandMatrix
             </motion.div>
           </Link>
 

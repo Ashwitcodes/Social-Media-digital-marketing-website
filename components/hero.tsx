@@ -93,7 +93,7 @@ export function Hero() {
           className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto"
         >
           {[
-            { value: '500+', label: 'Happy Clients' },
+            { value: '05+', label: 'Happy Clients' },
             { value: '1000+', label: 'Projects Delivered' },
             { value: '99.9%', label: 'Uptime SLA' },
           ].map((stat, index) => (

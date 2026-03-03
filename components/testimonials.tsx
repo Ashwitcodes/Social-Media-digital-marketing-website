@@ -6,49 +6,49 @@ import { Star } from 'lucide-react';
 export function Testimonials() {
   const testimonials = [
     {
-      name: 'Sarah Johnson',
-      role: 'CEO, TechStart Inc',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=sarah',
+      name: 'Physics Wallah',
+      role: 'Education Platform',
+      image: 'pw.png',
       content:
-        'DevHub transformed our digital presence. The team delivered beyond expectations and our conversion rates increased by 150%.',
+        'BrandMatrix transformed our digital presence. The team delivered beyond expectations and our conversion rates increased by 150%.',
       rating: 5,
     },
     {
-      name: 'Michael Chen',
-      role: 'Founder, Digital Ventures',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=michael',
+      name: 'Adda247',
+      role: 'Education Platform',
+      image: 'adda.png',
       content:
         'Outstanding service! The level of professionalism and attention to detail is unmatched. Highly recommended for any business.',
       rating: 5,
     },
     {
-      name: 'Emily Rodriguez',
-      role: 'Marketing Director, GrowthCo',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=emily',
+      name: 'Unacademy',
+      role: 'Education Platform',
+      image: 'unacademy.jpg',
       content:
         'From strategy to execution, they handled everything flawlessly. Our ROI improved significantly within the first month.',
       rating: 5,
     },
     {
-      name: 'David Thompson',
-      role: 'Product Manager, InnovateLabs',
+      name: 'DKB',
+      role: 'Social Awareness Platform',
       image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=david',
       content:
         'Best investment we made for our company. The results speak for themselves. Exceptional team and support.',
       rating: 5,
     },
     {
-      name: 'Jessica Lee',
+      name: 'XYZ',
       role: 'Startup Founder',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=jessica',
+      image: 'adda.png',
       content:
         'They understood our vision and executed it perfectly. Great communication and timely delivery throughout the project.',
       rating: 5,
     },
     {
-      name: 'Robert Martinez',
-      role: 'Director of Operations, E-commerce Plus',
-      image: 'https://api.dicebear.com/7.x/avataaars/svg?seed=robert',
+      name: 'Nitin Vijay',
+      role: 'Motion Kota',
+      image: 'motion.jpg',
       content:
         'Professional, reliable, and results-driven. They helped us scale our operations significantly. Would work with them again.',
       rating: 5,

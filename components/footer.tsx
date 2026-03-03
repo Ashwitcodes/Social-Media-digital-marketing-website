@@ -103,7 +103,7 @@ export function Footer() {
           {/* Brand */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4 block">
-              DevHub
+              BrandMatrix
             </Link>
             <p className="text-foreground/60 text-sm mb-6">
               Your complete digital marketing and software development partner for business growth.
@@ -154,10 +154,10 @@ export function Footer() {
               <li className="flex gap-3">
                 <Mail size={18} className="text-primary flex-shrink-0 mt-0.5" />
                 <a
-                  href="mailto:hello@devhub.com"
+                  href="mailto:hello@BrandMatrix.com"
                   className="text-foreground/60 hover:text-primary transition-colors text-sm"
                 >
-                  hello@devhub.com
+                  hello@BrandMatrix.com
                 </a>
               </li>
               <li className="flex gap-3">
@@ -191,7 +191,7 @@ export function Footer() {
           className="flex flex-col md:flex-row items-center justify-between gap-4"
         >
           <p className="text-foreground/60 text-sm">
-            © {currentYear} DevHub. All rights reserved.
+            © {currentYear} BrandMatrix. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-foreground/60 hover:text-primary transition-colors">

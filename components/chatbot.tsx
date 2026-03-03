@@ -84,7 +84,7 @@ export function Chatbot() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: `Hello! 👋 I'm DevHub's AI Assistant. Ask me about our services, tools, pricing, or anything else you'd like to know!`,
+      text: `Hello! 👋 I'm BrandMatrix's AI Assistant. Ask me about our services, tools, pricing, or anything else you'd like to know!`,
       sender: 'bot',
       timestamp: new Date(),
     },
@@ -195,7 +195,7 @@ export function Chatbot() {
             <div className="bg-gradient-to-r from-primary to-accent p-4 rounded-t-2xl">
               <h3 className="text-white font-semibold flex items-center gap-2">
                 <MessageCircle size={20} />
-                DevHub Assistant
+                BrandMatrix Assistant
               </h3>
               <p className="text-white/80 text-xs">Ask about our services</p>
             </div>

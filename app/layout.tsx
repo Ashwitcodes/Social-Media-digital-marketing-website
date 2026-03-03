@@ -18,39 +18,39 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'DevHub - Digital Marketing & Software Development Services',
+  title: 'BrandMatrix - Digital Marketing & Software Development Services',
   description: 'Professional digital marketing and custom software development services. Flexible SaaS pricing with monthly and yearly plans. Transform your business with expert strategies.',
   keywords: 'digital marketing, software development, web development, SaaS, marketing agency, custom software',
-  authors: [{ name: 'DevHub Team' }],
-  creator: 'DevHub',
-  publisher: 'DevHub',
+  authors: [{ name: 'BrandMatrix Team' }],
+  creator: 'BrandMatrix',
+  publisher: 'BrandMatrix',
   generator: 'Next.js',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
+        url: '/brand.jpeg',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/brand.jpeg',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/brand.jpeg',
+        type: 'image/jpeg',
       },
     ],
     apple: '/apple-icon.png',
   },
   openGraph: {
-    title: 'DevHub - Digital Marketing & Software Development',
+    title: 'BrandMatrix - Digital Marketing & Software Development',
     description: 'Professional digital marketing and software development services with flexible SaaS pricing.',
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DevHub - Digital Marketing & Software Development',
+    title: 'BrandMatrix - Digital Marketing & Software Development',
     description: 'Professional digital marketing and software development services',
   },
 }
