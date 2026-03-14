@@ -22,7 +22,7 @@ export function Services() {
       title: 'Complete Social Media Management',
       description: 'End-to-end social media strategy, content planning, posting, and community engagement across all platforms',
       icon: Share2,
-      color: 'from-primary to-blue-500',
+      color: 'from-primary to-green-500',
     },
     {
       title: 'Content Production Studio',
@@ -63,6 +63,14 @@ export function Services() {
       icon: Shield,
       color: 'from-indigo-500 to-purple-500',
     },
+  ];
+
+  const trustedLogos = [
+    { src: '/pw.png', alt: 'PW' },
+    { src: '/unacademy.jpg', alt: 'Unacademy' },
+    { src: '/brand-logo.png', alt: 'BrandMatrix' },
+    { src: '/placeholder-logo.png', alt: 'Partner' },
+    { src: '/placeholder-logo.svg', alt: 'Partner' },
   ];
 
   const containerVariants = {
@@ -197,6 +205,39 @@ export function Services() {
       className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/30"
     >
       <div className="max-w-7xl mx-auto">
+        {/* Trusted By Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Trusted by industry leaders
+          </h2>
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
+            We partner with top brands to deliver growth-driven digital experiences.
+          </p>
+
+          <div className="relative overflow-hidden mt-10 py-12 w-full rounded-4xl border border-white/25 bg-gradient-to-r from-indigo-600 via-blue-600 to-cyan-600">
+            <div className="flex items-center gap-12 animate-marquee flex-nowrap">
+              {trustedLogos.concat(trustedLogos).map((logo, idx) => (
+                <div
+                  key={`${logo.alt}-${idx}`}
+                  className="flex items-center justify-center w-44 h-24 rounded-2xl bg-white/10 border border-white/25 shadow-sm"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="max-h-14 max-w-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
