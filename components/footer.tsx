@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram } from 'lucide-react';
 import Link from 'next/link';
 
 export function Footer() {
@@ -38,9 +38,9 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Github, href: 'https://github.com/Ashwitcodes', label: 'GitHub' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/in/ashwit-sharma-454317251/', label: 'LinkedIn' },
+    { icon: Instagram, href: 'https://www.instagram.com/ashwitsharma?igsh=d200NXRlcGxrNjI2', label: 'Instagram' },
   ];
 
   const containerVariants = {

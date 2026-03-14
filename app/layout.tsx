@@ -28,15 +28,15 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/brand.jpeg',
+        url: '/brand-logo.png',
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/brand.jpeg',
+        url: '/brand-logo.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
-        url: '/brand.jpeg',
+        url: '/brand-logo.png',
         type: 'image/jpeg',
       },
     ],
