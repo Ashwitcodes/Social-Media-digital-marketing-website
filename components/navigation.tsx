@@ -9,10 +9,13 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: 'Services', href: '#services' },
-    { label: 'Features', href: '#features' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'FAQ', href: '#faq' },
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Services', href: '/services' },
+    { label: 'Blog', href: '/blog' },
+    { label: 'Free Trial', href: '/free-trial' },
+    { label: 'Demo', href: '/demo' },
+    { label: 'Contact', href: '/contact' },
   ];
 
   return (
@@ -49,14 +52,15 @@ export function Navigation() {
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-4">
-            <motion.button
+            <motion.a
+              href="/free-trial"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.3 }}
               className="px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors"
             >
               Get Started
-            </motion.button>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -90,9 +94,9 @@ export function Navigation() {
                 {item.label}
               </a>
             ))}
-            <button className="w-full mt-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
+            <a href="/free-trial" className="w-full mt-4 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium hover:bg-primary/90 transition-colors">
               Get Started
-            </button>
+            </a>
           </motion.div>
         )}
       </div>

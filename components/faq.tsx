@@ -58,7 +58,7 @@ export function FAQ() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
@@ -125,7 +125,7 @@ export function FAQ() {
                   height: openIndex === index ? 'auto' : 0,
                   opacity: openIndex === index ? 1 : 0,
                 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] as const }}
                 className="overflow-hidden"
               >
                 <div className="px-6 py-4 border-t border-border bg-muted/20">
@@ -149,9 +149,9 @@ export function FAQ() {
           <p className="text-foreground/70 mb-4">
             Still have questions? We're here to help!
           </p>
-          <button className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors">
+          <a href="/contact" className="px-8 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-colors inline-flex items-center justify-center">
             Contact Our Team
-          </button>
+          </a>
         </motion.div>
       </div>
     </section>

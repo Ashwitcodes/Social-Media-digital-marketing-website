@@ -113,6 +113,25 @@ export function Chatbot() {
     return `Thanks for your question! I'm familiar with our Digital Marketing services (content production, logo design, thumbnail design, short video editing), Web Development services (MLM websites, School Management, Hospital Management), and our tools (After Effects, Premiere Pro, Alight Motion). Feel free to ask about any of these topics!`;
   };
 
+  const fetchBotResponse = async (userMessage: string): Promise<string> => {
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: userMessage }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Chat endpoint returned an error.');
+      }
+
+      const data = await response.json();
+      return data?.text ? String(data.text) : findBestResponse(userMessage);
+    } catch (error) {
+      return findBestResponse(userMessage);
+    }
+  };
+
   const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
 
@@ -127,17 +146,17 @@ export function Chatbot() {
     setInputValue('');
     setIsLoading(true);
 
-    // Simulate bot response delay
-    setTimeout(() => {
-      const botResponse: Message = {
-        id: (Date.now() + 1).toString(),
-        text: findBestResponse(inputValue),
-        sender: 'bot',
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, botResponse]);
-      setIsLoading(false);
-    }, 500);
+    const botText = await fetchBotResponse(inputValue);
+
+    const botResponse: Message = {
+      id: (Date.now() + 1).toString(),
+      text: botText,
+      sender: 'bot',
+      timestamp: new Date(),
+    };
+
+    setMessages((prev) => [...prev, botResponse]);
+    setIsLoading(false);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {

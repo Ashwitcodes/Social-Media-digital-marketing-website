@@ -35,4 +35,22 @@ The platform provides a clean, scalable frontend with smooth animations and an A
 
 ---
 
-## 📂 Project Structure
+## � Environment Variables
+
+To enable email sending and the AI chat backend, create a `.env.local` file with the following values:
+
+```env
+SMTP_HOST=smtp.example.com
+SMTP_PORT=587
+SMTP_USER=your-smtp-username
+SMTP_PASSWORD=your-smtp-password
+SMTP_SECURE=false
+CONTACT_EMAIL=ashwitsharma834@gmail.com
+OPENAI_API_KEY=your-openai-api-key
+```
+
+If `OPENAI_API_KEY` is not provided, the chatbot will fall back to a built-in response flow.
+
+---
+
+## �📂 Project Structure

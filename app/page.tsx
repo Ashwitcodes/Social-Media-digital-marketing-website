@@ -1,6 +1,5 @@
 import { Navigation } from '@/components/navigation';
 import { Hero } from '@/components/hero';
-import { Services } from '@/components/services';
 import { Features } from '@/components/features';
 import { Pricing as SuccessStories } from '@/components/pricing';
 import { Testimonials } from '@/components/testimonials';
@@ -24,7 +23,6 @@ export default function Home() {
     <main className="min-h-screen bg-background text-foreground">
       <Navigation />
       <Hero />
-      <Services />
       <Features />
       <SuccessStories />
       <Testimonials />

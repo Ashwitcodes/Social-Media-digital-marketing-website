@@ -11,21 +11,22 @@ export function Footer() {
     {
       title: 'Product',
       links: [
-        { label: 'Services', href: '#services' },
-        { label: 'Features', href: '#features' },
-        { label: 'Pricing', href: '#pricing' },
-        { label: 'FAQ', href: '#faq' },
+        { label: 'Services', href: '/services' },
+        { label: 'Free Trial', href: '/free-trial' },
+        { label: 'Demo', href: '/demo' },
+        { label: 'Blog', href: '/blog' },
       ],
     },
     {
       title: 'Company',
       links: [
-        { label: 'About Us', href: '#' },
-        { label: 'Blog', href: '#' },
-        { label: 'Careers', href: '#' },
-        { label: 'Contact', href: '#' },
+        { label: 'About Us', href: '/about' },
+        { label: 'Blog', href: '/blog' },
+        { label: 'Careers', href: '/' },
+        { label: 'Contact', href: '/contact' },
       ],
     },
+
     {
       title: 'Legal',
       links: [
@@ -61,7 +62,7 @@ export function Footer() {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: 'easeOut',
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
