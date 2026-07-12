@@ -5,29 +5,29 @@ import { Chatbot } from '@/components/chatbot';
 const posts = [
   {
     title: 'Social Media Success Stories',
-    description: 'Learn how our campaigns generated viral reach and accelerated brand growth for clients across Instagram, YouTube, and Facebook.',
-    image: 'https://source.unsplash.com/featured/?social-media-marketing',
+    description: 'Learn how thoughtful creative strategy and consistent execution can unlock viral reach and measurable growth across Instagram, YouTube, and Facebook.',
+    image: '/1.jpeg',
     category: 'Case Study',
     readTime: '5 min read',
   },
   {
     title: 'How to Launch Your First Ad Campaign',
-    description: 'Step-by-step guidance to create high-converting social media ads and measure the results in real time.',
-    image: 'https://source.unsplash.com/featured/?digital-ad-campaign',
+    description: 'A practical guide to building high-converting campaigns with clear messaging, sharp creatives, and real-time measurement.',
+    image: '/2.jpeg',
     category: 'Tutorial',
     readTime: '8 min read',
   },
   {
     title: 'Building High-Impact Video Content',
-    description: 'Discover the creative strategy behind engaging short-form videos, clips, and ads that drive engagement.',
-    image: 'https://source.unsplash.com/featured/?video-production',
+    description: 'Discover the structure behind engaging short-form videos and motion-led stories that drive attention and conversions.',
+    image: '/3.jpeg',
     category: 'Strategy',
     readTime: '6 min read',
   },
   {
     title: 'AI Tools for Content Creation',
-    description: 'Explore how AI-powered tools can speed up your design, copywriting, and video editing workflow.',
-    image: 'https://source.unsplash.com/featured/?artificial-intelligence-creative',
+    description: 'Explore how AI-assisted workflows can speed up ideation, design, and content production without losing quality.',
+    image: '/4.jpeg',
     category: 'Tools',
     readTime: '7 min read',
   },
@@ -35,52 +35,73 @@ const posts = [
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
+    <main className="min-h-screen bg-[linear-gradient(135deg,_#f8fafc_0%,_#ffffff_45%,_#f8fafc_100%)] text-slate-900">
       <Navigation />
-      <section className="pt-24 pb-12 px-4 sm:px-6 lg:px-8 bg-secondary/10">
-        <div className="max-w-6xl mx-auto text-center">
-          <p className="text-sm uppercase tracking-[0.3em] text-primary font-semibold mb-4">
-            Blog
-          </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Insights for smarter digital marketing
-          </h1>
-          <p className="text-foreground/70 max-w-3xl mx-auto leading-relaxed">
-            Read the latest ideas, social media tips, and campaign examples from our marketing team.
-          </p>
+
+      <section className="px-4 pb-14 pt-24 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_35px_120px_-45px_rgba(15,23,42,0.25)] backdrop-blur md:p-12">
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p className="mb-4 text-sm font-semibold uppercase tracking-[0.32em] text-primary">Insights & strategy</p>
+              <h1 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                Creative ideas for brands that want to grow smarter.
+              </h1>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+                Explore practical guides, campaign lessons, and visual strategies that help ambitious brands stand out and convert better.
+              </p>
+              <div className="mt-6 inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-600">
+                Fresh content • clear strategy • premium execution
+              </div>
+            </div>
+
+            <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50 p-3 shadow-inner">
+              <img src="/brand.jpeg" alt="Creative marketing workspace" className="h-[280px] w-full rounded-[1.25rem] object-cover" />
+            </div>
+          </div>
         </div>
       </section>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      <div className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div className="mb-8 flex items-end justify-between gap-4">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Featured articles</p>
+            <h2 className="text-2xl font-semibold text-slate-900">Latest thoughts from our studio</h2>
+          </div>
+          <div className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 shadow-sm">
+            Updated regularly for modern brands
+          </div>
+        </div>
+
         <div className="grid gap-8 lg:grid-cols-2">
-          {posts.map((post, index) => (
+          {posts.map((post) => (
             <article
               key={post.title}
-              className="group rounded-3xl border border-border bg-card overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="group overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-[0_20px_70px_-35px_rgba(15,23,42,0.24)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_30px_80px_-30px_rgba(15,23,42,0.32)]"
             >
-              <div className="relative h-48 bg-gradient-to-br from-slate-800 to-slate-900 overflow-hidden">
+              <div className="relative h-56 overflow-hidden bg-slate-100">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-                <div className="absolute top-4 left-4 inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-primary/90 text-white">
+                <div className="absolute left-4 top-4 inline-flex items-center rounded-full bg-slate-900/85 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
                   {post.category}
                 </div>
               </div>
+
               <div className="p-8">
-                <div className="flex items-center gap-3 text-xs text-foreground/60 mb-3">
+                <div className="mb-3 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-slate-500">
                   <span>{post.readTime}</span>
                   <span>•</span>
-                  <span>AI Enhanced</span>
+                  <span>Studio insight</span>
                 </div>
-                <h2 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="mb-3 text-2xl font-semibold text-slate-900 transition-colors group-hover:text-primary">
                   {post.title}
-                </h2>
-                <p className="text-foreground/70 leading-relaxed mb-6">{post.description}</p>
-                <a href="#" className="inline-flex items-center gap-2 text-primary font-semibold hover:text-accent transition-colors group/link">
+                </h3>
+                <p className="mb-6 leading-7 text-slate-600">{post.description}</p>
+                <a href="#" className="inline-flex items-center gap-2 font-semibold text-slate-800 transition hover:text-primary">
                   Read Article
-                  <span className="group-hover/link:translate-x-1 transition-transform">→</span>
+                  <span className="transition group-hover:translate-x-1">→</span>
                 </a>
               </div>
             </article>

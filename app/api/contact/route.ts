@@ -59,14 +59,25 @@ export async function POST(request: Request) {
     const smtpUser = process.env.SMTP_USER;
     const smtpPassword = process.env.SMTP_PASSWORD;
     const smtpSecure = process.env.SMTP_SECURE === 'true';
+    const hasSmtpConfig = Boolean(smtpHost && smtpUser && smtpPassword);
 
-    if (!smtpHost || !smtpUser || !smtpPassword) {
+    if (!hasSmtpConfig) {
+      console.warn('SMTP is not configured. Lead received but email notification was skipped.', {
+        name,
+        phone,
+        service,
+        leadAnalysis,
+      });
+
       return NextResponse.json(
         {
-          error:
-            'SMTP is not configured. Add SMTP_HOST, SMTP_USER, and SMTP_PASSWORD in your environment variables.',
+          ok: true,
+          message: 'Your request was received successfully. Email delivery is not configured yet, so we will follow up manually.',
+          leadId: `lead_${Date.now()}`,
+          analysis: leadAnalysis,
+          emailSent: false,
         },
-        { status: 500 }
+        { status: 200 }
       );
     }
 

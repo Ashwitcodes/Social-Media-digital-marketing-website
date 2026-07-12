@@ -3,18 +3,18 @@
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import {
-  Zap,
+  ArrowRight,
+  CheckCircle2,
   Code2,
+  Database,
+  Palette,
+  Rocket,
+  Shield,
+  Smartphone,
+  Sparkles,
   TrendingUp,
   Video,
-  Palette,
-  Database,
-  Smartphone,
-  Shield,
-  Share2,
-  Users,
-  Sparkles,
-  Rocket,
+  Zap,
 } from 'lucide-react';
 
 interface ServicesProps {
@@ -25,38 +25,32 @@ export function Services({ onChooseService }: ServicesProps) {
   const digitalMarketingServices = [
     {
       title: 'Video Editing',
-      description: 'Fast-paced social videos, YouTube edits, and storyboard-driven cuts using Premiere Pro and After Effects.',
-      icon: Video,
+      description: 'Fast-paced social videos, YouTube edits, and storyboard-driven cuts that feel cinematic and conversion-ready.',
       color: 'from-sky-500 to-cyan-500',
     },
     {
       title: 'Thumbnail Design',
-      description: 'High-converting thumbnails for YouTube, reels, and ads to boost click-through rates and visibility.',
-      icon: Palette,
+      description: 'High-converting thumbnails for YouTube, reels, and ads built to improve visibility and click-through rates.',
       color: 'from-violet-500 to-fuchsia-500',
     },
     {
       title: 'Logo Design',
-      description: 'Unique brand identity systems with logo, color palette, and brand mark design for memorable presence.',
-      icon: Zap,
+      description: 'Distinct brand identity systems with logos, palette direction, and visual hierarchy that feel premium.',
       color: 'from-emerald-500 to-lime-500',
     },
     {
       title: 'Animation Design',
-      description: 'Motion graphics, animated socials, and brand explainer clips that bring your message to life.',
-      icon: Sparkles,
+      description: 'Motion graphics and animated social creatives that add energy, clarity, and memorable storytelling.',
       color: 'from-pink-500 to-rose-500',
     },
     {
       title: 'Photo Editing',
-      description: 'Professional image retouching, background removal, color correction, and product polish for stunning visuals.',
-      icon: Smartphone,
+      description: 'Retouching, background cleanup, color correction, and product polishing for polished, high-quality visuals.',
       color: 'from-orange-400 to-red-500',
     },
     {
       title: 'Brand & Content Strategy',
-      description: 'End-to-end campaign planning, content calendars, and messaging frameworks to grow your audience.',
-      icon: Share2,
+      description: 'Campaign planning, content calendars, and message frameworks that help ideas turn into repeatable growth.',
       color: 'from-blue-500 to-indigo-500',
     },
   ];
@@ -64,48 +58,43 @@ export function Services({ onChooseService }: ServicesProps) {
   const webDevelopmentServices = [
     {
       title: 'Gym Website',
-      description: 'Member portal, class booking, payment integration, trainer profiles, and fitness tracking dashboard.',
-      icon: Code2,
+      description: 'Modern fitness websites with class booking, memberships, trainer profiles, and smooth customer journeys.',
       color: 'from-green-500 to-emerald-500',
     },
     {
       title: 'Restaurant Website',
-      description: 'Online menu, food ordering, table reservations, delivery integration, and real-time order tracking.',
-      icon: Database,
+      description: 'Online menus, reservations, delivery integrations, and ordering flows tailored for hospitality brands.',
       color: 'from-orange-500 to-yellow-500',
     },
     {
       title: 'E-commerce Website',
-      description: 'Product catalog, shopping cart, secure payments, inventory management, and customer accounts.',
-      icon: Shield,
+      description: 'Storefronts built for trust and conversion with catalog structure, secure payments, and inventory flow.',
       color: 'from-purple-500 to-pink-500',
     },
     {
       title: 'Static Website',
-      description: 'Fast, SEO-optimized branding websites perfect for portfolios, agencies, and information-based sites.',
-      icon: Code2,
+      description: 'Fast, SEO-focused sites ideal for agencies, portfolios, service businesses, and information-heavy brands.',
       color: 'from-blue-500 to-cyan-500',
     },
     {
       title: 'Dynamic Website',
-      description: 'Database-driven sites with real-time content, user interactions, and admin dashboards for complex applications.',
-      icon: Database,
+      description: 'Interactive sites with real-time content, dashboards, and flexible backend systems for expanding operations.',
       color: 'from-red-500 to-pink-500',
     },
     {
       title: 'Custom Web App',
-      description: 'Tailored solutions including SaaS, MLM, school management, hospital systems, and enterprise software.',
-      icon: Sparkles,
+      description: 'Bespoke solutions for SaaS, education, healthcare, MLM, and internal business systems.',
       color: 'from-indigo-500 to-purple-500',
     },
   ];
 
   const trustedLogos = [
+    { src: '/brandmatlogo.jpeg', alt: 'BrandMatrix' },
     { src: '/pw.png', alt: 'PW' },
     { src: '/unacademy.jpg', alt: 'Unacademy' },
-    { src: '/brand-logo.png', alt: 'BrandMatrix' },
-    { src: '/motion.jpg', alt: 'Partner' },
-    { src: '/placeholder-logo.svg', alt: 'Partner' },
+    { src: '/adda.png', alt: 'Adda' },
+    { src: '/motion.jpg', alt: 'Motion Studio' },
+    { src: '/Vidyapeet(PW).jpeg', alt: 'Vidyapeet' },
   ];
 
   const containerVariants = {
@@ -113,303 +102,213 @@ export function Services({ onChooseService }: ServicesProps) {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
+        staggerChildren: 0.1,
+        delayChildren: 0.12,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, y: 18 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.55,
         ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   };
 
-  const borderColors = [
-    'border-l-primary',
-    'border-l-accent',
-    'border-l-purple-500',
-    'border-l-orange-500',
-    'border-l-green-500',
-    'border-l-pink-500',
-  ];
-
-  const badgeColors = [
-    'bg-primary/20 text-primary',
-    'bg-accent/20 text-accent',
-    'bg-purple-500/20 text-purple-400',
-    'bg-orange-500/20 text-orange-400',
-    'bg-green-500/20 text-green-400',
-    'bg-pink-500/20 text-pink-400',
-  ];
-
-  const renderServiceCategory = (title: string, services: any[], isMarketing: boolean) => (
+  const renderServiceCategory = (
+    title: string,
+    services: Array<{ title: string; description: string; color: string }>,
+    isMarketing: boolean
+  ) => (
     <div className="mb-16">
-      <motion.h3
-        initial={{ opacity: 0, x: -20 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
+      <motion.div
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.55 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-foreground mb-12 flex items-center gap-3"
+        className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-slate-200/80 pb-4"
       >
-        {isMarketing ? (
-          <TrendingUp className="text-primary" size={32} />
-        ) : (
-          <Code2 className="text-accent" size={32} />
-        )}
-        {title}
-      </motion.h3>
+        <div>
+          <p className="mb-2 text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">
+            {isMarketing ? 'Growth & creative' : 'Digital products'}
+          </p>
+          <h3 className="text-3xl font-bold text-slate-900">{title}</h3>
+        </div>
+        <div className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 shadow-sm">
+          Tailored for quality, speed, and results
+        </div>
+      </motion.div>
 
       <motion.div
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: '-100px' }}
-        className="space-y-6"
+        viewport={{ once: true, margin: '-80px' }}
+        className="grid gap-6 lg:grid-cols-2"
       >
         {services.map((service, index) => (
-          <motion.div
+          <motion.article
             key={service.title}
             variants={itemVariants}
-            whileHover={{ x: 8 }}
-            className={`group relative p-8 rounded-2xl border-l-8 ${borderColors[index]} bg-card/50 backdrop-blur border border-border hover:bg-card/80 transition-all duration-300 overflow-hidden`}
+            whileHover={{ y: -4, scale: 1.01 }}
+            className="group relative overflow-hidden rounded-[1.5rem] border border-slate-200 bg-white p-7 shadow-[0_20px_70px_-35px_rgba(15,23,42,0.22)] transition-all hover:shadow-[0_30px_90px_-35px_rgba(15,23,42,0.3)]"
           >
-            {/* Background Gradient */}
-            <div
-              className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-3 transition-opacity duration-300 -z-10`}
-            />
-
-            {/* Top Row: Number Circle + Title + Badge */}
-            <div className="flex items-start justify-between mb-4">
-              <div className="flex items-center gap-4">
-                {/* Numbered Circle */}
-                <div
-                  className={`flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br ${service.color} flex items-center justify-center font-bold text-white text-lg group-hover:scale-110 transition-transform duration-300`}
-                >
+            <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 transition-opacity duration-300 group-hover:opacity-10`} />
+            <div className="relative flex items-start justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br ${service.color} font-semibold text-white shadow-lg`}>
                   {index + 1}
                 </div>
-
-                {/* Title */}
-                <h4 className="text-2xl font-bold text-foreground">
-                  {service.title}
-                </h4>
+                <div>
+                  <h4 className="text-xl font-semibold text-slate-900">{service.title}</h4>
+                  <p className="text-sm text-slate-500">Premium solution</p>
+                </div>
               </div>
-
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.4, delay: 0.2 }}
-                viewport={{ once: true }}
-                className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap ${badgeColors[index]} flex items-center gap-2`}
-              >
-                <Zap size={16} />
-                Premium Service
-              </motion.div>
+              <div className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600">
+                {isMarketing ? 'Growth' : 'Build'}
+              </div>
             </div>
 
-            {/* Description */}
-            <p className="text-foreground/70 leading-relaxed text-base ml-16">
-              {service.description}
-            </p>
+            <p className="relative mt-5 text-base leading-7 text-slate-600">{service.description}</p>
 
-            {/* CTA Button */}
-            <Link
-              href={`/contact?service=${encodeURIComponent(service.title)}`}
-              className="inline-flex items-center gap-2 mt-4 ml-16 text-primary font-semibold hover:text-accent transition-colors duration-300"
-            >
-              Request this service
-              <span className="text-lg">→</span>
-            </Link>
-          </motion.div>
+            <div className="relative mt-6 flex items-center justify-between gap-4 border-t border-slate-100 pt-4">
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <CheckCircle2 className="h-4 w-4 text-emerald-500" />
+                Custom strategy included
+              </div>
+              <Link
+                href={`/contact?service=${encodeURIComponent(service.title)}`}
+                onClick={() => onChooseService?.(service.title)}
+                className="inline-flex items-center gap-2 font-semibold text-slate-800 transition hover:text-primary"
+              >
+                Request now
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </motion.article>
         ))}
       </motion.div>
     </div>
   );
 
   return (
-    <section
-      id="services"
-      className="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 via-slate-950 to-slate-900 text-white overflow-hidden"
-    >
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),_transparent_28%),radial-gradient(circle_at_top_right,_rgba(192,132,252,0.14),_transparent_24%)]" />
-      <div className="relative max-w-7xl mx-auto">
-        {/* Section Header */}
+    <section id="services" className="relative overflow-hidden bg-[radial-gradient(circle_at_top_left,_rgba(59,130,246,0.12),_transparent_30%),radial-gradient(circle_at_bottom_right,_rgba(14,165,233,0.08),_transparent_30%),linear-gradient(135deg,_#f8fafc_0%,_#ffffff_48%,_#f8fafc_100%)] py-24 px-4 sm:px-6 lg:px-8 md:py-32">
+      <div className="absolute inset-0 bg-[linear-gradient(120deg,transparent_0%,rgba(255,255,255,0.55)_45%,transparent_100%)]" />
+      <div className="relative mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="mb-12 rounded-[2rem] border border-slate-200 bg-white/90 p-8 shadow-[0_35px_120px_-45px_rgba(15,23,42,0.25)] backdrop-blur"
         >
-          <p className="text-sm tracking-[0.32em] uppercase text-cyan-300/80 mb-3">
-            Premium Creative Studio
-          </p>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Services that scale your brand
-          </h2>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            From high-impact design to video, animation, and brand strategy, we build polished digital experiences that convert and keep your audience engaged.
-          </p>
+          <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.32em] text-primary">
+                Premium Creative Studio
+              </p>
+              <h2 className="text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+                Services crafted to look sharp and perform better.
+              </h2>
+              <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-600">
+                From strategy and motion to polished websites, we build experiences that feel modern, trustworthy, and ready to grow.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-5 py-3 font-semibold text-white transition hover:bg-slate-700"
+                >
+                  Book a consultation
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+                <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-5 py-3 text-sm font-medium text-slate-600">
+                  <Rocket className="h-4 w-4 text-primary" />
+                  Fast turnaround • tailored delivery
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50/80 p-6 shadow-inner">
+              <div className="grid gap-3 sm:grid-cols-2">
+                {[
+                  { title: '48hr turnaround', subtitle: 'On select creative requests' },
+                  { title: '100% custom', subtitle: 'No template-first approach' },
+                  { title: 'SEO-ready', subtitle: 'Designed for discoverability' },
+                  { title: 'Growth focus', subtitle: 'Built around conversion' },
+                ].map((item) => (
+                  <div key={item.title} className="rounded-[1.25rem] border border-slate-200 bg-white p-4 shadow-sm">
+                    <p className="text-lg font-semibold text-slate-900">{item.title}</p>
+                    <p className="mt-1 text-sm text-slate-500">{item.subtitle}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </motion.div>
 
-        {/* Logo Frame */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           viewport={{ once: true }}
           className="mb-16"
         >
-          <div className="relative rounded-[2rem] border border-white/10 bg-slate-950/80 p-6 shadow-2xl shadow-slate-950/40 overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-slate-950/90 to-transparent pointer-events-none" />
-            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-slate-950/90 to-transparent pointer-events-none" />
-            <div className="flex items-center justify-between gap-6 overflow-x-auto py-2 px-1 scrollbar-thin scrollbar-track-transparent scrollbar-thumb-slate-700/70">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.16)]">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Trusted by modern brands</p>
+                <h3 className="text-2xl font-semibold text-slate-900">Selected partner work</h3>
+              </div>
+              <p className="max-w-xl text-sm text-slate-500">
+                A mix of education, startup, and product-led teams that value clarity, consistency, and memorable design.
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
               {trustedLogos.map((logo) => (
-                <div
-                  key={logo.alt}
-                  className="flex-shrink-0 flex items-center justify-center min-w-[160px] h-20 rounded-3xl bg-slate-900/90 border border-white/10 p-3"
-                >
-                  <img
-                    src={logo.src}
-                    alt={logo.alt}
-                    className="max-h-12 object-contain"
-                  />
+                <div key={logo.alt} className="flex h-24 items-center justify-center rounded-[1.25rem] border border-slate-200 bg-slate-50 p-3 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                  <img src={logo.src} alt={logo.alt} className="max-h-12 w-full object-contain" />
                 </div>
               ))}
             </div>
           </div>
         </motion.div>
 
-        {/* Digital Marketing Services */}
         {renderServiceCategory('Digital Marketing', digitalMarketingServices, true)}
-
-        {/* Software Development Services */}
         {renderServiceCategory('Software Development', webDevelopmentServices, false)}
 
-        {/* Tools Section */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
-          className="mt-16 p-8 rounded-3xl bg-card border border-border"
+          className="mt-16 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-[0_20px_60px_-30px_rgba(15,23,42,0.16)]"
         >
-          <h3 className="text-2xl font-bold text-foreground mb-6">Tools & Technology</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="rounded-3xl bg-slate-950/80 p-6 border border-white/10">
-              <h4 className="font-semibold text-primary mb-3">Video & Design Tools</h4>
-              <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-accent rounded-full" />
-                  Adobe After Effects
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-accent rounded-full" />
-                  Premiere Pro
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-accent rounded-full" />
-                  Alight Motion
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-accent rounded-full" />
-                  Photoshop & Illustrator
-                </li>
-              </ul>
-            </div>
-            <div className="rounded-3xl bg-slate-950/80 p-6 border border-white/10">
-              <h4 className="font-semibold text-accent mb-3">Web Development Stack</h4>
-              <ul className="space-y-3 text-foreground/80">
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full" />
-                  Next.js & React
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full" />
-                  Node.js Backend
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full" />
-                  Tailwind CSS & modern UI
-                </li>
-                <li className="flex items-center gap-3">
-                  <span className="w-2 h-2 bg-primary rounded-full" />
-                  API & automation integration
-                </li>
-              </ul>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Showcase Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-20"
-        >
-          <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] items-center">
+          <div className="grid gap-6 lg:grid-cols-2">
             <div>
-              <p className="text-sm uppercase tracking-[0.3em] text-cyan-300/80 mb-3">Portfolio Spotlight</p>
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Design, video, and web work that converts.
-              </h3>
-              <p className="text-slate-300 max-w-2xl leading-relaxed mb-8">
-                We create visuals and digital experiences inspired by top growth studios. Below are a few recent brand projects that combine motion, marketing, and creative strategy.
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-primary">Why brands choose us</p>
+              <h3 className="mt-3 text-3xl font-bold text-slate-900">Polished execution, thoughtful strategy, and a premium experience.</h3>
+              <p className="mt-4 text-base leading-7 text-slate-600">
+                Every project is handled with attention to detail, strong communication, and creative systems that work for both brand and growth.
               </p>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="rounded-3xl border border-white/10 bg-slate-950/80 p-6">
-                  <p className="text-sm text-cyan-300 uppercase mb-2">Featured Work</p>
-                  <h4 className="text-xl font-semibold text-white mb-2">Viral Campaign Visuals</h4>
-                  <p className="text-foreground/80">High-impact thumbnails, story-driven reels, and fast-edit social videos designed for rapid engagement.</p>
-                </div>
-                <div className="rounded-3xl border border-white/10 bg-slate-950/80 p-6">
-                  <p className="text-sm text-cyan-300 uppercase mb-2">Brand Identity</p>
-                  <h4 className="text-xl font-semibold text-white mb-2">Logo + Brand System</h4>
-                  <p className="text-foreground/80">Memorable visual systems built for recognition across digital ads, social feeds, and websites.</p>
-                </div>
-              </div>
             </div>
-            <div className="grid gap-4">
-              <img src="/1.jpeg" alt="Brand creative sample" className="w-full rounded-[2rem] border border-white/10 object-cover h-[250px]" />
-              <img src="/2.jpeg" alt="Video marketing sample" className="w-full rounded-[2rem] border border-white/10 object-cover h-[250px]" />
+            <div className="grid gap-4 sm:grid-cols-2">
+              {[
+                { title: 'Creative direction', text: 'Visual systems and storytelling aligned to your brand.' },
+                { title: 'Flexible delivery', text: 'Built for agencies, startups, and established businesses alike.' },
+                { title: 'Modern stack', text: 'Next.js, React, and performance-first development.' },
+                { title: 'Clear communication', text: 'Fast updates and transparent project ownership.' },
+              ].map((item) => (
+                <div key={item.title} className="rounded-[1.25rem] border border-slate-200 bg-slate-50 p-4">
+                  <h4 className="font-semibold text-slate-900">{item.title}</h4>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{item.text}</p>
+                </div>
+              ))}
             </div>
-          </div>
-        </motion.div>
-
-        {/* Process Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="mt-20 rounded-[2rem] border border-white/10 bg-slate-950/80 p-10"
-        >
-          <div className="text-center mb-10">
-            <p className="text-sm uppercase tracking-[0.3em] text-cyan-300/80 mb-3">How we deliver</p>
-            <h3 className="text-3xl md:text-4xl font-bold text-white">A 4-step growth creative process</h3>
-          </div>
-          <div className="grid gap-6 lg:grid-cols-4">
-            {[
-              { title: 'Discover', description: 'We map your audience, brand position, and growth goals before any creative work begins.' },
-              { title: 'Create', description: 'Design, video, animation and copy that align with the campaign and platform.' },
-              { title: 'Launch', description: 'Deploy content with optimized delivery for social and web performance.' },
-              { title: 'Scale', description: 'Measure results, refine creatives, and grow reach with data-led iterations.' },
-            ].map((step) => (
-              <div key={step.title} className="rounded-3xl border border-white/10 bg-slate-950/90 p-6">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-300 font-semibold">{step.title.charAt(0)}</div>
-                <h4 className="text-xl font-semibold text-white mb-3">{step.title}</h4>
-                <p className="text-foreground/80">{step.description}</p>
-              </div>
-            ))}
           </div>
         </motion.div>
       </div>

@@ -89,7 +89,7 @@ export function ContactForm({ selectedService }: ContactFormProps) {
 
       setStatus({
         type: 'success',
-        message: '✅ Your request has been analyzed and sent successfully. We will contact you within 24 hours.',
+        message: result?.message || '✅ Your request has been analyzed and received successfully. We will contact you within 24 hours.',
       });
       setName('');
       setPhone('');
